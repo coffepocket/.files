@@ -1,0 +1,131 @@
+#waybarstylecss
+/* Global reset */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono", "FiraCode Nerd Font", sans-serif;
+    font-size: 11px;
+    min-height: 0;
+}
+
+/* Colors matched to your Wofi theme */
+@define-color pill-bg rgba(35, 38, 50, 0.90);        /* like #input background */
+@define-color pill-border rgba(255, 255, 255, 0.08); /* same as Wofi window border */
+@define-color pill-hover rgba(80, 90, 120, 0.75);    /* like #entry:selected */
+@define-color workspace-bg rgba(20, 22, 30, 0.95);   /* like Wofi window background */
+@define-color workspace-active rgba(80, 90, 120, 0.90);
+@define-color workspace-hover rgba(80, 90, 120, 0.65);
+@define-color alert-red #E57373;
+@define-color alert-yellow #F2C94C;
+
+/* Common pill style for modules */
+#workspaces button,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#pulseaudio,
+#network,
+#power-profiles-daemon,
+#idle_inhibitor,
+#battery,
+#battery.bat2,
+#tray,
+#keyboard-state,
+#language,
+#custom-power,
+#custom-media,
+#mpd {
+    background: @pill-bg;
+    color: #ffffff;
+    padding: 0 10px;
+    margin: 2px 3px;
+    border-radius: 1000px;
+    box-shadow: 0 0 0 1px @pill-border;
+    transition: 0.12s ease;
+}
+
+/* Workspaces – small navy bubbles */
+#workspaces button {
+    background: @workspace-bg;
+    box-shadow: none;
+    padding: 0 6px;
+    margin: 2px 2px;
+    border-radius: 1000px;
+}
+
+/* Active workspace – bluish highlight like selected entry */
+#workspaces button.active,
+#workspaces button.focused {
+    background: @workspace-active;
+    color: #ffffff;
+}
+
+/* Hover */
+#workspaces button:hover {
+    background: @workspace-hover;
+}
+
+/* Urgent (red) */
+#workspaces button.urgent {
+    background: @alert-red;
+}
+
+/* Hover effect for all pills */
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#idle_inhibitor:hover,
+#battery:hover,
+#battery.bat2:hover,
+#keyboard-state:hover,
+#language:hover,
+#tray:hover,
+#custom-power:hover,
+#mpd:hover,
+#custom-media:hover,
+#clock:hover {
+    background: @pill-hover;
+}
+
+/* Battery warning / critical */
+#battery.warning { color: @alert-yellow; }
+#battery.critical { color: @alert-red; }
+
+/* Muted audio */
+#pulseaudio.muted {
+    color: #BCC4CC;
+}
+
+/* Network disconnected */
+#network.disconnected {
+    color: @alert-red;
+}
+
+/* Idle inhibitor active */
+#idle_inhibitor.activated {
+    color: @alert-yellow;
+}
+
+/* Power profiles coloring */
+#power-profiles-daemon.performance { color: @alert-red; }
+#power-profiles-daemon.power-saver { color: #7BEA8A; }
+
+/* Clock pill spacing */
+#clock {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+/* Make the bar itself invisible so pills “float” like in the screenshot */
+window#waybar {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
