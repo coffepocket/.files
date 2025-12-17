@@ -1,0 +1,12 @@
+configuration {
+ modi: "window,drun,run";
+ font: "JetBrainsMono nerd Font Medium 13";
+ display-drun: "Applications";
+ display-window: "Windows";
+ show-icons: true;
+ icon-theme: "Papirus";
+ }
+
+
+@theme "/home/coffe-pocket/.config/rofi/theme.rasi"
+
